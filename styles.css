@@ -1,0 +1,15 @@
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    height: 100vh;
+}
+
+.card
+{
+    height: 10vh;
+    width: 10vh;
+    border: 2px dotted black;
+}
