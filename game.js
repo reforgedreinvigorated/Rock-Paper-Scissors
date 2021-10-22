@@ -10,10 +10,21 @@ function playRound(playerSelection, computerSelection)
     computerSelection = computerSelection.toLowerCase();
     // Player Won
     if (playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scissors" && computerSelection == "paper")
+    {
+        playerScore += 1;
+        if (playerScore >= 5)
+            return "Player wins BO5 match"
         return `Player Wins! ${playerSelection} beats ${computerSelection}`; 
+    }
     //Computer Won
     else if (computerSelection == "rock" && playerSelection == "scissors" || computerSelection == "paper" && playerSelection == "rock" || computerSelection == "scissors" && playerSelection == "paper")
+    {
+        computerScore += 1;
+        if (computerScore >= 5)
+            return "Computer wins BO5 match"
         return `Computer Wins! ${computerSelection} beats ${playerSelection}`; 
+    }
+
     // Tie game
     return "Tie Game!";
 }
@@ -39,4 +50,24 @@ function game()
         console.log("Tie Game in BO5")
 }
 
-game();
+//game();
+
+const container = document.querySelector(".score");
+
+let playerScore = 0;
+let computerScore = 0;
+
+const choices = document.querySelectorAll(".card");
+
+choices.forEach((choice) => 
+{
+    choice.addEventListener("click", () => 
+    {
+        alert(playRound(choice.id, computerPlay()));
+        score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
+    });
+});
+
+const score = document.createElement("div");
+score.textContent = `Player: ${playerScore} - Computer: ${computerScore}`;
+container.appendChild(score);

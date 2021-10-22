@@ -1,8 +1,12 @@
-.container
-{
+.score, .container{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container
+{
+
     gap: 32px;
     height: 100vh;
 }
